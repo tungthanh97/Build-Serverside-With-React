@@ -14,11 +14,12 @@ const apiClient = axios.create({
 });
 
 export const setClientToken = (token) => {
-  apiClient.interceptors.request.use(function (config) {
-    config.headers.Authorization = "Bearer " + token;
+    apiClient.defaults.headers.Authorization = token;
+    apiClient.interceptors.request.use(async function (config) {
+      config.headers.Authorization = "Bearer " + token;
 
-    return config;
-  });
+      return config;
+    });
 };
 
 export default apiClient;

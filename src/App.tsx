@@ -5,9 +5,9 @@ import { Route } from "./components/Router/Route";
 import Home from "./pages/Home";
 import Audio from "./pages/Audio";
 
-function App() {
+function App({ initialPath }: { initialPath: string }) {
   return (
-    <Router>
+    <Router initialPath="/">
       <Route path="/">
         <Home />
       </Route>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import PlayButton from "../../assets/play.svg";
+
 
 const AudioPlayer = ({
   currentTrack,
@@ -31,7 +31,7 @@ const AudioPlayer = ({
         else pauseMusic();
       }}
     >
-      <img src={PlayButton} alt="play" />
+      PLAY MUSIC
     </button>
   );
 };

@@ -5,12 +5,15 @@ import App from "./src/App";
 
 const app = express();
 
-app.get("/", (req, res) => {
+app.use(express.static("dist"));
+
+app.get("*", (req, res) => {
   res.send(`
   <!DOCTYPE html>
   <html>
   <body>
-    <div>${renderToString(<App />)}</div>
+    <div id="root">${renderToString(<App initialPath={req.path} />)}</div>
+    <script src="/client.js"></script>
   </body></html>
   `);
 });

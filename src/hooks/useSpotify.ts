@@ -26,6 +26,7 @@ const getToken = async (
       qs.stringify(data),
       headers
     );
+    console.log("res", response);
 
     return response.data.access_token;
   } catch (err) {
@@ -38,9 +39,9 @@ const useSpotify = () => {
 
   const setSpotifyToken = async () => {
     const token = await getToken(clientId, clientSecret);
-
-    await setClientToken(token);
     localStorage.setItem("TOKEN", token);
+    await setClientToken(token);
+
     setIsLoading(false);
   };
 
